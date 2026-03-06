@@ -550,6 +550,10 @@
     .cart{
       width: 100%;
     }
+    .center{
+      display: flex;
+      flex-direction: column;
+    }
 
 
   }

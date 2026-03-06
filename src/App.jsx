@@ -45,7 +45,7 @@ function App() {
       colors: ["черный", "белый", "серый"],
       image: Hoodie1,
       description: "Хлопковая oversize футболка свободного кроя",
-      inStock: true,
+      inStock:'В наличии',
     },
     {
       title: "Худи Oversize Y2K",
@@ -55,7 +55,7 @@ function App() {
       colors: ["синий", "черный"],
       image: Hoodie2,
       description: "Хлопковая oversize футболка свободного кроя",
-      inStock: true,
+      inStock:'В наличии',
     },
     {
       title: "Худи Oversize Y2K",
@@ -65,7 +65,7 @@ function App() {
       colors: ["бежевый", "хаки"],
       image: Hoodie3,
       description: "Хлопковая oversize футболка свободного кроя ",
-      inStock: false,
+      inStock: 'В наличии',
     },
     {
       title: "Худи Oversize Y2K",
@@ -75,7 +75,7 @@ function App() {
       colors: ["бежевый", "хаки"],
       image: Hoodie4,
       description: "Хлопковая oversize футболка свободного кроя ",
-      inStock: false,
+      inStock: 'В наличии',
     },
     {
       title: "Худи Oversize Y2K",
@@ -85,7 +85,7 @@ function App() {
       colors: ["бежевый", "хаки"],
       image: Hoodie5,
       description: "Хлопковая oversize футболка свободного кроя ",
-      inStock: false,
+      inStock: 'Нет наличии',
     },
     {
       title: "Худи Oversize Y2K",
@@ -95,7 +95,7 @@ function App() {
       colors: ["бежевый", "хаки"],
       image: Hoodie6,
       description: "Хлопковая oversize футболка свободного кроя ",
-      inStock: false,
+      inStock: 'В наличии',
     }
 
   ])
@@ -154,6 +154,7 @@ function App() {
                     <div className="product-title">{ware.title}</div>
                     <div className="product-price">
                       <span className="current-price">{ware.price}₽</span>
+                      <span>{ware.inStock}</span>
                       {wares?.sizes?.map((size,sizeIndex)=>(
                         <button>{size}</button>
                       ))}
