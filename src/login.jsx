@@ -10,7 +10,7 @@ function Login() {
         <>
 
             <div className="container">
-                <nav className="navbar">
+                <nav className="navbarMain">
                   <a href="#" className="logo" onClick={() => navigate("/")}>KOR<span>ZINA</span></a>
 
                     {/* <div className="nav-links">

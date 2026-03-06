@@ -4,7 +4,6 @@ import './App.css'
 
 function Cart({ items, setItems, count, deleteCount }) {
     const [pay, setPay] = useState(0)
-    
     const navigate = useNavigate();
     useEffect(() => {
         let summa = 0
@@ -12,7 +11,6 @@ function Cart({ items, setItems, count, deleteCount }) {
             summa += Number(el.price)
         })
         console.log(summa);
-        
         setPay(summa)
     }, [items])
     const [inCartIndex, setInCartIndex] = useState(0)
@@ -23,7 +21,6 @@ function Cart({ items, setItems, count, deleteCount }) {
             let nextItem = [...c]
             nextItem.splice(inCartIndex, 1)
             return nextItem
-
         })
     }
     localStorage.setItem('pay', JSON.stringify(pay));
@@ -32,19 +29,10 @@ function Cart({ items, setItems, count, deleteCount }) {
         <>
 
             <div className="container">
-                <nav className="navbar">
+                <nav className="navbarMain">
                     <a href="#" className="logo" onClick={()=> navigate('/')}>KOR<span>ZINA</span></a>
-
-                    {/* <div className="nav-links">
-                        <a href="#">Новинки</a>
-                        <a href="#">Мужское</a>
-                        <a href="#">Женское</a>
-                        <a href="#">Аксессуары</a>
-                        <a href="#">Sale</a>
-                    </div> */}
-
                     <div className="nav-icons">
-                        <button className="icon-btn">🔍</button>
+                        {/* <button className="icon-btn">🔍</button> */}
                         <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
                         <button className="icon-btn">❤️</button>
                         <button className="icon-btn" >
@@ -53,7 +41,6 @@ function Cart({ items, setItems, count, deleteCount }) {
                         </button>
                     </div>
                 </nav>
-
                 <div className="center">
                     <div className="cart">
                         {items.map((inCart, inCartIndex) => (
@@ -64,7 +51,6 @@ function Cart({ items, setItems, count, deleteCount }) {
                                 <div className="product-image">
                                     <img src={inCart.image} alt={inCart.title} />
                                 </div>
-
                                 <div className="product-info">
                                     <div className="product-title">
                                         {inCart.title}
@@ -96,11 +82,9 @@ function Cart({ items, setItems, count, deleteCount }) {
                                 <input type="text" placeholder="ММ/ГГ"></input>
                                 <input type="text" placeholder="CVV"></input>
                             </div>
-
                             <input type="text" placeholder="Номер счета"></input>
                             <input type="text" placeholder="IBAN"></input>
                             <p style={{ textAlign: 'center' }}>К оплате: {pay} </p>
-
                             <button type="submit">💳 Сохранить</button>
                         </form>
                     </div>

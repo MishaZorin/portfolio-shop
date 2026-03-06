@@ -34,7 +34,7 @@
     padding: 0 2rem;
   }
 
-  .navbar {
+  .navbarMain {
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--border-light);
     display: flex;
@@ -70,7 +70,7 @@
   }
 
   .nav-links input:hover {
-    
+
     width: 400px;
     color: var(--yellow-primary);
   }
@@ -379,34 +379,34 @@
 
   }
 
- .cart {
-  margin-top: 10px;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+  .cart {
+    margin-top: 10px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-.product-card-cart {
-  display: flex;
-  background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  position: relative;
-  width: 100%;
-  min-height: 100px;
-}
+  .product-card-cart {
+    display: flex;
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+  }
 
-.product-card-cart .product-image {
-  width: 30%;
-  height: 100%;
-  /* flex-shrink: 0;
+  .product-card-cart .product-image {
+    width: 30%;
+    height: 100%;
+    /* flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8px; */
-}
+  }
 
 
 
@@ -415,10 +415,12 @@
     justify-content: center;
     gap: 30px;
   }
-.payment{
-  margin-top: 10px;
-}
-   .bank-form {
+
+  .payment {
+    margin-top: 10px;
+  }
+
+  .bank-form {
     background: var(--bg-surface);
     width: 340px;
     padding: 28px;
@@ -493,68 +495,81 @@
   .bank-form button:active {
     transform: translateY(0);
   }
+
   form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 400px;
-  padding: 24px;
-  background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
-}
-.create-acc{
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-input {
-  width: 100%;
-  padding: 14px 16px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  font-size: 16px;
-  color: var(--text-primary);
-  transition: all 0.2s ease;
-  box-sizing: border-box;
-}
-
-input::placeholder {
-  color: var(--text-tertiary);
-  opacity: 0.8;
-}
-
-input:hover {
-  border-color: var(--border-medium);
-  background: var(--bg-overlay);
-}
-
-input:focus {
-  outline: none;
-  border-color: var(--yellow-primary);
-  background: var(--bg-overlay);
-  box-shadow: 0 0 0 3px var(--yellow-soft);
-}
-
-
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--text-primary);
-  -webkit-box-shadow: 0 0 0px 1000px var(--bg-elevated) inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-
-
-
-
-@media(max-width:600px){
-  .center{
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
   }
-  
-}
+
+  .create-acc {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    font-size: 16px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: var(--text-tertiary);
+    opacity: 0.8;
+  }
+
+  input:hover {
+    border-color: var(--border-medium);
+    background: var(--bg-overlay);
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--yellow-primary);
+    background: var(--bg-overlay);
+    box-shadow: 0 0 0 3px var(--yellow-soft);
+  }
+
+
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-primary);
+    -webkit-box-shadow: 0 0 0px 1000px var(--bg-elevated) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .burgerButton {
+    display: none;
+  }
+
+
+  @media(max-width:600px) {
+    .center {
+      display: flex;
+      flex-direction: column;
+    }
+    .navbarMain {
+       display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .cart{
+      width: 100%;
+    }
+
+
+  }

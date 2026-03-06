@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Cart from './cart.jsx'
 import Login from './login.jsx'
 import Ware from './ware.jsx'
+// import Menu from './menu.jsx'
 import AnimeHoodie from './animeHoodie.png'
 import AnimeShirt from './animeShirt.png'
 import Grifit from './grifit.png'
@@ -12,6 +13,8 @@ import Grifit from './grifit.png'
 function App() {
   const navigate = useNavigate();
   const [count, setCount] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
+  const [showProduct, setShowProduct] = useState([])
   const [wareInCart, setWareInCart] = useState(() => {
     const savedWares = localStorage.getItem('wareInCart')
 
@@ -20,11 +23,11 @@ function App() {
     }
 
     return [
-      
+
     ]
   })
 
-   useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('wareInCart', JSON.stringify(wareInCart))
   }, [wareInCart])
   const [inputValue, setInputValue] = useState('')
@@ -59,48 +62,41 @@ function App() {
       description: "Теплое худи ",
       inStock: false,
     }
-   
 
   ])
   function addToCart(ware) {
     setCount(count + 1)
     setWareInCart([...wareInCart, ware])
     console.log(wareInCart);
-   
+  }
+  function showWare(ware) {
+    setShowProduct([ware])
 
   }
-  
-  useEffect(() => {
-    localStorage.setItem('wareInCart', JSON.stringify(wareInCart));
-  },[wareInCart])
-  const filteredWares = wares.filter(ware =>{
+  const filteredWares = wares.filter(ware => {
     return ware.title.toLowerCase().includes(inputValue.toLowerCase())
   })
 
 
   return (
     <>
-
       <Routes>
         <Route path="/" element={
           <div className="container">
-
-            <nav className="navbar">
+            <nav className="navbarMain">
               <a href="#" className="logo" onClick={() => navigate('/')}>YELLOW<span>BLACK</span></a>
-
               <div className="nav-links">
                 <input type="text" placeholder='🔍 Я хочу...' value={inputValue} onChange={(event) => {
                   setInputValue(event.target.value)
                 }} />
-                
+
               </div>
 
               <div className="nav-icons">
-                {/* <button className="icon-btn">🔍</button> */}
-                <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
-                <button className="icon-btn">❤️</button>
+                <button className="icon-btn" onClick={() => navigate("/login")}>Аккаунт</button>
+                <button className="icon-btn">Избранное</button>
                 <button className="icon-btn" onClick={() => navigate("/cart")}>
-                  🛒
+                  Корзина
                   <span className="cart-badge">{count}</span>
                 </button>
               </div>
@@ -111,8 +107,8 @@ function App() {
               <h1>ЧЕРНЫЙ <span>С ЖЕЛТЫМ</span></h1>
               <p>Минималистичная одежда в желто-черной гамме</p>
               <div className="hero-buttons">
-                <a href="#" className="btn btn-primary" onClick={() => navigate("/cart")}>Купить</a>
-                <a href="#" className="btn btn-outline">Коллекция</a>
+                <a href="" className="btn btn-primary" onClick={() => navigate("/cart")}>Купить</a>
+                <a href="" className="btn btn-outline">Коллекция</a>
               </div>
             </section>
 
@@ -120,17 +116,18 @@ function App() {
             <div className="products-grid">
 
               {filteredWares.map((ware, wareIndex) => (
-                <div className="product-card" onClick={() => navigate("/ware")}>
-                  <div className="product-image">
+                <div className="product-card">
+                  <div className="product-image" onClick={() => {
+                    showWare(ware);
+                    navigate("/ware");
+                  }}>
                     <img src={ware.image} alt={ware.title} />
                   </div>
                   <div className="product-info">
                     <div className="product-title">{ware.title}</div>
                     <div className="product-price">
                       <span className="current-price">{ware.price} $</span>
-                      {/* {wares.sizes.map((size, sizeIndex) => (
-                        <button key={sizeIndex} className='jj'>{size}</button>
-                      ))} */}
+
                     </div>
                   </div>
                   <button className='add' onClick={() => addToCart(ware, wareIndex)}>Добавить!</button>
@@ -167,7 +164,7 @@ function App() {
 
         <Route path="/cart" element={<Cart items={wareInCart} setItems={setWareInCart} count={count} deleteCount={setCount} />} />
         <Route path="/login" element={<Login></Login>} />
-        <Route path="/ware" element={<Ware items={wareInCart} setItems={setWareInCart}></Ware>} />
+        <Route path="/ware" element={<Ware items={showProduct} setItems={setShowProduct}></Ware>} />
       </Routes>
 
 

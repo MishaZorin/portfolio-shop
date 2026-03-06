@@ -3,25 +3,12 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import './App.css'
 
 function Ware({ items, setItems }) {
-
-
     const navigate = useNavigate();
-
     return (
         <>
-
             <div className="container">
-                <nav className="navbar">
+                <nav className="navbarMain">
                     <a href="#" className="logo" onClick={() => navigate('/')}>KOR<span>ZINA</span></a>
-
-                    {/* <div className="nav-links">
-                        <a href="#">Новинки</a>
-                        <a href="#">Мужское</a>
-                        <a href="#">Женское</a>
-                        <a href="#">Аксессуары</a>
-                        <a href="#">Sale</a>
-                    </div> */}
-
                     <div className="nav-icons">
                         <button className="icon-btn">🔍</button>
                         <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
