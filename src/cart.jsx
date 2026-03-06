@@ -30,7 +30,7 @@ function Cart({ items, setItems, count, deleteCount }) {
 
             <div className="container">
                 <nav className="navbarMain">
-                    <a href="#" className="logo" onClick={()=> navigate('/')}>KOR<span>ZINA</span></a>
+                   <a href="#" className="logo" onClick={() => navigate('/')}>YELLOW<span>BLACK</span></a>
                     <div className="nav-icons">
                         {/* <button className="icon-btn">🔍</button> */}
                         <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
@@ -58,7 +58,7 @@ function Cart({ items, setItems, count, deleteCount }) {
 
                                     <div className="product-price">
                                         <span className="current-price">
-                                            {inCart.price} $
+                                            {inCart.price} ₽
                                         </span>
 
                                         <button
@@ -84,7 +84,7 @@ function Cart({ items, setItems, count, deleteCount }) {
                             </div>
                             <input type="text" placeholder="Номер счета"></input>
                             <input type="text" placeholder="IBAN"></input>
-                            <p style={{ textAlign: 'center' }}>К оплате: {pay} </p>
+                            <p style={{ textAlign: 'center' }}>К оплате: {pay} ₽ </p>
                             <button type="submit">💳 Сохранить</button>
                         </form>
                     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from "react-router-dom";
-import './App.css'
+import './ware.css'
 
 function Ware({ items, setItems }) {
     const navigate = useNavigate();
@@ -8,9 +8,8 @@ function Ware({ items, setItems }) {
         <>
             <div className="container">
                 <nav className="navbarMain">
-                    <a href="#" className="logo" onClick={() => navigate('/')}>KOR<span>ZINA</span></a>
+                    <a href="#" className="logo" onClick={() => navigate('/')}>YELLOW<span>BLACK</span></a>
                     <div className="nav-icons">
-                        <button className="icon-btn">🔍</button>
                         <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
                         <button className="icon-btn">❤️</button>
                         <button className="icon-btn" >
@@ -19,26 +18,22 @@ function Ware({ items, setItems }) {
                         </button>
                     </div>
                 </nav>
-                <div className="ware-card">
+                <div>
                     {items.map((item, itemIndex) => (
-                        <div>
+                        <div className="ware-card">
                             <div className="left-img">
                                 <img src={item.image} alt={item.title} />
                             </div>
                             <div className="right-description">
-                                {item.description}
+                                <h1>{item.title}</h1>
+                                <p className="description-text">{item.description}</p>
+                                    <p className="price-tag">{item.price} ₽</p>
+                                    {/* <button className='add' onClick={() => addToCart(item, itemIndex)}>Добавить!</button> */}
                             </div>
                         </div>
                     ))}
-
-
                 </div>
-
-
-
             </div>
-
-
         </>
     )
 }

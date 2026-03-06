@@ -11,7 +11,7 @@ function Login() {
 
             <div className="container">
                 <nav className="navbarMain">
-                  <a href="#" className="logo" onClick={() => navigate("/")}>KOR<span>ZINA</span></a>
+                  <a href="#" className="logo" onClick={() => navigate('/')}>YELLOW<span>BLACK</span></a>
 
                     {/* <div className="nav-links">
                         <a href="#">Новинки</a>

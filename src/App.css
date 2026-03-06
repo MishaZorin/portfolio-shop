@@ -293,26 +293,6 @@
     color: var(--yellow-primary);
   }
 
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .category-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-
-  .category-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--yellow-primary);
-  }
-
   .footer {
     padding: 4rem 0 2rem;
     background: var(--bg-surface);

@@ -5,15 +5,20 @@ import Cart from './cart.jsx'
 import Login from './login.jsx'
 import Ware from './ware.jsx'
 // import Menu from './menu.jsx'
-import AnimeHoodie from './animeHoodie.png'
-import AnimeShirt from './animeShirt.png'
-import Grifit from './grifit.png'
-// import Hudi from './hudi.jpg'
+import Hoodie1 from './d.webp'
+import Hoodie2 from './b.webp'
+import Hoodie3 from './c.webp'
+import Hoodie4 from './f.webp'
+import Hoodie5 from './u.webp'
+import Hoodie6 from './a.webp'
+
+
+
 
 function App() {
   const navigate = useNavigate();
   const [count, setCount] = useState(0)
-  const [isOpen, setIsOpen] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
   const [showProduct, setShowProduct] = useState([])
   const [wareInCart, setWareInCart] = useState(() => {
     const savedWares = localStorage.getItem('wareInCart')
@@ -33,33 +38,63 @@ function App() {
   const [inputValue, setInputValue] = useState('')
   const [wares, setWares] = useState([
     {
-      title: "Худи Oversize",
+      title: "Худи Oversize Y2K",
       category: "Футболки",
       price: '1999',
       sizes: ["S", "M", "L", "XL"],
       colors: ["черный", "белый", "серый"],
-      image: AnimeHoodie,
+      image: Hoodie1,
       description: "Хлопковая oversize футболка свободного кроя",
       inStock: true,
     },
     {
-      title: "Футболка Anime",
-      category: "Джинсы",
+      title: "Худи Oversize Y2K",
+      category: "Худи",
       price: '4599',
       sizes: ["M", "L", "XL"],
       colors: ["синий", "черный"],
-      image: AnimeShirt,
-      description: "Классические джинсы slim fit на каждый день",
+      image: Hoodie2,
+      description: "Хлопковая oversize футболка свободного кроя",
       inStock: true,
     },
     {
-      title: "Худи Griffit",
+      title: "Худи Oversize Y2K",
       category: "Худи",
       price: '3999',
       sizes: ["S", "M", "L"],
       colors: ["бежевый", "хаки"],
-      image: Grifit,
-      description: "Теплое худи ",
+      image: Hoodie3,
+      description: "Хлопковая oversize футболка свободного кроя ",
+      inStock: false,
+    },
+    {
+      title: "Худи Oversize Y2K",
+      category: "Худи",
+      price: '3999',
+      sizes: ["S", "M", "L"],
+      colors: ["бежевый", "хаки"],
+      image: Hoodie4,
+      description: "Хлопковая oversize футболка свободного кроя ",
+      inStock: false,
+    },
+    {
+      title: "Худи Oversize Y2K",
+      category: "Худи",
+      price: '3999',
+      sizes: ["S", "M", "L"],
+      colors: ["бежевый", "хаки"],
+      image: Hoodie5,
+      description: "Хлопковая oversize футболка свободного кроя ",
+      inStock: false,
+    },
+    {
+      title: "Худи Oversize Y2K",
+      category: "Худи",
+      price: '3999',
+      sizes: ["S", "M", "L"],
+      colors: ["бежевый", "хаки"],
+      image: Hoodie6,
+      description: "Хлопковая oversize футболка свободного кроя ",
       inStock: false,
     }
 
@@ -76,8 +111,6 @@ function App() {
   const filteredWares = wares.filter(ware => {
     return ware.title.toLowerCase().includes(inputValue.toLowerCase())
   })
-
-
   return (
     <>
       <Routes>
@@ -91,7 +124,6 @@ function App() {
                 }} />
 
               </div>
-
               <div className="nav-icons">
                 <button className="icon-btn" onClick={() => navigate("/login")}>Аккаунт</button>
                 <button className="icon-btn">Избранное</button>
@@ -101,8 +133,6 @@ function App() {
                 </button>
               </div>
             </nav>
-
-
             <section className="hero">
               <h1>ЧЕРНЫЙ <span>С ЖЕЛТЫМ</span></h1>
               <p>Минималистичная одежда в желто-черной гамме</p>
@@ -111,10 +141,7 @@ function App() {
                 <a href="" className="btn btn-outline">Коллекция</a>
               </div>
             </section>
-
-
             <div className="products-grid">
-
               {filteredWares.map((ware, wareIndex) => (
                 <div className="product-card">
                   <div className="product-image" onClick={() => {
@@ -126,8 +153,10 @@ function App() {
                   <div className="product-info">
                     <div className="product-title">{ware.title}</div>
                     <div className="product-price">
-                      <span className="current-price">{ware.price} $</span>
-
+                      <span className="current-price">{ware.price}₽</span>
+                      {wares?.sizes?.map((size,sizeIndex)=>(
+                        <button>{size}</button>
+                      ))}
                     </div>
                   </div>
                   <button className='add' onClick={() => addToCart(ware, wareIndex)}>Добавить!</button>
@@ -164,7 +193,7 @@ function App() {
 
         <Route path="/cart" element={<Cart items={wareInCart} setItems={setWareInCart} count={count} deleteCount={setCount} />} />
         <Route path="/login" element={<Login></Login>} />
-        <Route path="/ware" element={<Ware items={showProduct} setItems={setShowProduct}></Ware>} />
+        <Route path="/ware" element={<Ware items={showProduct} setItems={setShowProduct} ></Ware>} />
       </Routes>
 
 
