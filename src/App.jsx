@@ -176,7 +176,7 @@ function App() {
                         </div>
 
                       ))}
-                      <button className='favLove' onClick={()=> addToFavourite(ware)}>♡♡</button>
+                      <button className='favLove' onClick={()=> addToFavourite(ware)}>♡</button>
                     </div>
                   </div>
                   <button className='add' onClick={() => addToCart(ware, wareIndex)}>Добавить!</button>

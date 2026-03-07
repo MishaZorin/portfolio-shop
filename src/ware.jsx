@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from "react-router-dom";
 import './ware.css'
-
 function Ware({ items, setItems, sizes, setSizes }) {
     const navigate = useNavigate();
     return (

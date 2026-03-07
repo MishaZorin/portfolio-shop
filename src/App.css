@@ -541,10 +541,7 @@
   cursor: pointer;
   color: white;
 }
-.size-line:focus{
-  border: 2px solid var(--bg-overlay);
-   border-color: var(--yellow-primary);
-}
+
 .sizes-line{
   display: flex;
   gap: 10px;
