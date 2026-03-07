@@ -4,6 +4,16 @@ import './App.css'
 
 function Favourite({items,setItems}) {
     const navigate = useNavigate();
+    const [inFav, setInFavIndex] = useState(0)
+    function deleteWare(inFavIndex) {
+        setInFavIndex(inFavIndex)
+        // deleteCount(count - 1)
+        setItems((c) => {
+            let nextItem = [...c]
+            nextItem.splice(inFavIndex, 1)
+            return nextItem
+        })
+    }
 
     return (
         <>
@@ -42,7 +52,7 @@ function Favourite({items,setItems}) {
                                         </span>
 
                                         <button
-                                            onClick={() => deleteWare(inCartIndex)}
+                                            onClick={() => deleteWare(inFavIndex)}
                                             className="add"
                                         >
                                             Убрать
