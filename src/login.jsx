@@ -15,9 +15,9 @@ function Login() {
 
 
                     <div className="nav-icons">
-                        <button className="icon-btn" onClick={() => navigate("/cart")}>👤</button>
-                        <button className="icon-btn">❤️</button>
-                        <button className="icon-btn" >
+                        <button className="icon-btn" >👤</button>
+                        <button className="icon-btn" onClick={() => navigate("/fav")}>❤️</button>
+                        <button className="icon-btn" onClick={() => navigate("/cart")}>
                             🛒
                             <span className="cart-badge"></span>
                         </button>
