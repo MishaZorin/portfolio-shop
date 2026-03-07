@@ -546,17 +546,11 @@
   display: flex;
   gap: 10px;
 }
-.favLove{
-  border: none;
-  background-color: var(--bg-deep);
-  color: red;
-  font-size: 20px;
-  cursor: pointer;
-  display: block;
-  margin: auto;
 
+.buttons{
+  display: flex;
+  /* justify-content: center; */
 }
-
   @media(max-width:600px) {
     .center {
       display: flex;

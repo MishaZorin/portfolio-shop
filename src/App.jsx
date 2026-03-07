@@ -113,7 +113,7 @@ function App() {
     setWareInCart([...wareInCart, ware])
     console.log(wareInCart);
   }
-  function addToFavourite(ware){
+  function addToFavourite(ware) {
     setFav([...fav, ware])
 
   }
@@ -139,7 +139,7 @@ function App() {
               </div>
               <div className="nav-icons">
                 <button className="icon-btn" onClick={() => navigate("/login")}>Аккаунт</button>
-                <button className="icon-btn"  onClick={() => navigate("/fav")}>Избранное</button>
+                <button className="icon-btn" onClick={() => navigate("/fav")}>Избранное</button>
                 <button className="icon-btn" onClick={() => navigate("/cart")}>
                   Корзина
                   <span className="cart-badge">{count}</span>
@@ -176,11 +176,15 @@ function App() {
                         </div>
 
                       ))}
-                     
+
                     </div>
-                     <button className='favLove' onClick={()=> addToFavourite(ware)}>❤️</button>
+
                   </div>
-                  <button className='add' onClick={() => addToCart(ware, wareIndex)}>Добавить!</button>
+                  <div className="buttons">
+                    <button className='add' onClick={() => addToFavourite(ware)}> Избранное ❤️</button>
+                    <button className='add' onClick={() => addToCart(ware, wareIndex)}>Добавить!</button>
+                  </div>
+
 
                 </div>
               ))}
