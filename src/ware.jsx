@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from "react-router-dom";
 import './ware.css'
 
-function Ware({ items, setItems }) {
+function Ware({ items, setItems, sizes, setSizes }) {
     const navigate = useNavigate();
     return (
         <>
@@ -12,7 +12,7 @@ function Ware({ items, setItems }) {
                     <div className="nav-icons">
                         <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
                         <button className="icon-btn">❤️</button>
-                        <button className="icon-btn" >
+                        <button className="icon-btn" onClick={() => navigate("/cart")} >
                             🛒
                             <span className="cart-badge"></span>
                         </button>
@@ -27,8 +27,16 @@ function Ware({ items, setItems }) {
                             <div className="right-description">
                                 <h1>{item.title}</h1>
                                 <p className="description-text">{item.description}</p>
-                                    <p className="price-tag">{item.price} ₽</p>
-                                    {/* <button className='add' onClick={() => addToCart(item, itemIndex)}>Добавить!</button> */}
+                                {sizes.map((size, sizeIndex) => (
+                                    <div className='sizes-line'>
+                                        <button className='size-line'>{size.size1}</button>
+                                        <button className='size-line'>{size.size2}</button>
+                                        <button className='size-line'>{size.size3}</button>
+                                    </div>
+
+                                ))}
+                                <p className="price-tag">{item.price} ₽</p>
+                                <button className='add' >Добавить!</button>
                             </div>
                         </div>
                     ))}

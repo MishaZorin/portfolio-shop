@@ -349,6 +349,7 @@
   }
 
   .add {
+    cursor: pointer;
     display: block;
     margin: auto;
     padding: 10px;
@@ -532,25 +533,48 @@
     transition: background-color 5000s ease-in-out 0s;
   }
 
-  .burgerButton {
-    display: none;
-  }
+.size-line{
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--bg-overlay);
+  cursor: pointer;
+  color: white;
+}
+.size-line:focus{
+  border: 2px solid var(--bg-overlay);
+   border-color: var(--yellow-primary);
+}
+.sizes-line{
+  display: flex;
+  gap: 10px;
+}
+.favLove{
+  border: none;
+  background-color: var(--bg-deep);
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
 
+}
 
   @media(max-width:600px) {
     .center {
       display: flex;
       flex-direction: column;
     }
+
     .navbarMain {
-       display: flex;
+      display: flex;
       flex-direction: column;
       gap: 20px;
     }
-    .cart{
+
+    .cart {
       width: 100%;
     }
-    .center{
+
+    .center {
       display: flex;
       flex-direction: column;
     }

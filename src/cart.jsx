@@ -32,7 +32,6 @@ function Cart({ items, setItems, count, deleteCount }) {
                 <nav className="navbarMain">
                    <a href="#" className="logo" onClick={() => navigate('/')}>YELLOW<span>BLACK</span></a>
                     <div className="nav-icons">
-                        {/* <button className="icon-btn">🔍</button> */}
                         <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
                         <button className="icon-btn">❤️</button>
                         <button className="icon-btn" >

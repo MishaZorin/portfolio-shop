@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Cart from './cart.jsx'
 import Login from './login.jsx'
 import Ware from './ware.jsx'
+import Favourite from './fav.jsx'
 // import Menu from './menu.jsx'
 import Hoodie1 from './d.webp'
 import Hoodie2 from './b.webp'
@@ -36,29 +37,30 @@ function App() {
     localStorage.setItem('wareInCart', JSON.stringify(wareInCart))
   }, [wareInCart])
   const [inputValue, setInputValue] = useState('')
+  const [fav, setFav] = useState([])
   const [wares, setWares] = useState([
     {
-      title: "Худи Oversize Y2K",
+      title: "Худи Oversize Y2K Classic",
       category: "Футболки",
       price: '1999',
       sizes: ["S", "M", "L", "XL"],
       colors: ["черный", "белый", "серый"],
       image: Hoodie1,
       description: "Хлопковая oversize футболка свободного кроя",
-      inStock:'В наличии',
+      inStock: 'В наличии',
     },
     {
-      title: "Худи Oversize Y2K",
+      title: "Худи Oversize Y2K White",
       category: "Худи",
       price: '4599',
       sizes: ["M", "L", "XL"],
       colors: ["синий", "черный"],
       image: Hoodie2,
       description: "Хлопковая oversize футболка свободного кроя",
-      inStock:'В наличии',
+      inStock: 'В наличии',
     },
     {
-      title: "Худи Oversize Y2K",
+      title: "Худи Oversize Y2K Pink",
       category: "Худи",
       price: '3999',
       sizes: ["S", "M", "L"],
@@ -68,7 +70,7 @@ function App() {
       inStock: 'В наличии',
     },
     {
-      title: "Худи Oversize Y2K",
+      title: "Худи Oversize Y2K Blood",
       category: "Худи",
       price: '3999',
       sizes: ["S", "M", "L"],
@@ -78,17 +80,17 @@ function App() {
       inStock: 'В наличии',
     },
     {
-      title: "Худи Oversize Y2K",
+      title: "Худи Oversize Y2K Skull",
       category: "Худи",
       price: '3999',
       sizes: ["S", "M", "L"],
       colors: ["бежевый", "хаки"],
       image: Hoodie5,
       description: "Хлопковая oversize футболка свободного кроя ",
-      inStock: 'Нет наличии',
+      inStock: ' В наличии',
     },
     {
-      title: "Худи Oversize Y2K",
+      title: "Худи Oversize Y2K Black",
       category: "Худи",
       price: '3999',
       sizes: ["S", "M", "L"],
@@ -99,10 +101,21 @@ function App() {
     }
 
   ])
+  const [sizes, setSizes] = useState([
+    {
+      size1: "S",
+      size2: "M",
+      size3: "L"
+    }
+  ])
   function addToCart(ware) {
     setCount(count + 1)
     setWareInCart([...wareInCart, ware])
     console.log(wareInCart);
+  }
+  function addToFavourite(ware){
+    setFav([...fav, ware])
+
   }
   function showWare(ware) {
     setShowProduct([ware])
@@ -126,7 +139,7 @@ function App() {
               </div>
               <div className="nav-icons">
                 <button className="icon-btn" onClick={() => navigate("/login")}>Аккаунт</button>
-                <button className="icon-btn">Избранное</button>
+                <button className="icon-btn"  onClick={() => navigate("/fav")}>Избранное</button>
                 <button className="icon-btn" onClick={() => navigate("/cart")}>
                   Корзина
                   <span className="cart-badge">{count}</span>
@@ -155,9 +168,15 @@ function App() {
                     <div className="product-price">
                       <span className="current-price">{ware.price}₽</span>
                       <span>{ware.inStock}</span>
-                      {wares?.sizes?.map((size,sizeIndex)=>(
-                        <button>{size}</button>
+                      {sizes.map((size, sizeIndex) => (
+                        <div className='sizes-line'>
+                          <button className='size-line'>{size.size1}</button>
+                          <button className='size-line'>{size.size2}</button>
+                          <button className='size-line'>{size.size3}</button>
+                        </div>
+
                       ))}
+                      <button className='favLove' onClick={()=> addToFavourite(ware)}>♡</button>
                     </div>
                   </div>
                   <button className='add' onClick={() => addToCart(ware, wareIndex)}>Добавить!</button>
@@ -194,7 +213,9 @@ function App() {
 
         <Route path="/cart" element={<Cart items={wareInCart} setItems={setWareInCart} count={count} deleteCount={setCount} />} />
         <Route path="/login" element={<Login></Login>} />
-        <Route path="/ware" element={<Ware items={showProduct} setItems={setShowProduct} ></Ware>} />
+        <Route path="/ware" element={<Ware items={showProduct} setItems={setShowProduct} sizes={sizes} setSizes={setSizes} ></Ware>} />
+        <Route path="/fav" element={<Favourite items={fav} setItems={setFav} ></Favourite>} />
+
       </Routes>
 
 

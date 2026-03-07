@@ -13,16 +13,8 @@ function Login() {
                 <nav className="navbarMain">
                   <a href="#" className="logo" onClick={() => navigate('/')}>YELLOW<span>BLACK</span></a>
 
-                    {/* <div className="nav-links">
-                        <a href="#">Новинки</a>
-                        <a href="#">Мужское</a>
-                        <a href="#">Женское</a>
-                        <a href="#">Аксессуары</a>
-                        <a href="#">Sale</a>
-                    </div> */}
 
                     <div className="nav-icons">
-                        <button className="icon-btn">🔍</button>
                         <button className="icon-btn" onClick={() => navigate("/cart")}>👤</button>
                         <button className="icon-btn">❤️</button>
                         <button className="icon-btn" >
