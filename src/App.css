@@ -71,7 +71,7 @@
 
   .nav-links input:hover {
 
-    width: 400px;
+    /* width: 400px; */
     color: var(--yellow-primary);
   }
 
