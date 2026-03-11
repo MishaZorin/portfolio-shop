@@ -129,29 +129,44 @@
     margin: 0 auto 2.5rem;
   }
 
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
+ .hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 12px;           
+}
 
-  .btn {
-    padding: 0.9rem 2.2rem;
-    border-radius: var(--radius-full);
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-  }
 
-  .btn-primary {
-    background: var(--yellow-primary);
-    color: black;
-    font-weight: 600;
-  }
+.hero-buttons .btn, 
+.hero-buttons .filters {
+  height: 44px;      
+  padding: 0 20px;     
+  border-radius: 8px;  
+  font-size: 16px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; 
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+
+.btn-primary {
+  background-color: var(--yellow-primary);
+  color: var(--text-muted);
+  border: none !important;
+  cursor: pointer;
+}
+
+
+.filters {
+   background-color: var(--yellow-primary);
+  cursor: pointer;
+  color: var(--text-muted);
+  border: none !important;
+  outline: none;
+}
+
 
   .btn-outline {
     background: transparent;
@@ -551,6 +566,7 @@
   display: flex;
   /* justify-content: center; */
 }
+
   @media(max-width:600px) {
     .center {
       display: flex;

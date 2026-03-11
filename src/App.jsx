@@ -19,7 +19,8 @@ import Hoodie6 from './a.webp'
 function App() {
   const navigate = useNavigate();
   const [count, setCount] = useState(0)
-  // const [isOpen, setIsOpen] = useState(false)
+  const [decrease, setDecrease] = useState(0)
+  const [increase, setIncrease] = useState(0)
   const [showProduct, setShowProduct] = useState([])
   const [wareInCart, setWareInCart] = useState(() => {
     const savedWares = localStorage.getItem('wareInCart')
@@ -72,7 +73,7 @@ function App() {
     {
       title: "Худи Oversize Y2K Blood",
       category: "Худи",
-      price: '3999',
+      price: '2999',
       sizes: ["S", "M", "L"],
       colors: ["бежевый", "хаки"],
       image: Hoodie4,
@@ -82,7 +83,7 @@ function App() {
     {
       title: "Худи Oversize Y2K Skull",
       category: "Худи",
-      price: '3999',
+      price: '5999',
       sizes: ["S", "M", "L"],
       colors: ["бежевый", "хаки"],
       image: Hoodie5,
@@ -92,7 +93,7 @@ function App() {
     {
       title: "Худи Oversize Y2K Black",
       category: "Худи",
-      price: '3999',
+      price: '999',
       sizes: ["S", "M", "L"],
       colors: ["бежевый", "хаки"],
       image: Hoodie6,
@@ -121,9 +122,11 @@ function App() {
     setShowProduct([ware])
 
   }
+
   const filteredWares = wares.filter(ware => {
     return ware.title.toLowerCase().includes(inputValue.toLowerCase())
   })
+
   return (
     <>
       <Routes>
@@ -135,6 +138,7 @@ function App() {
                 <input type="text" placeholder='🔍 Я хочу...' value={inputValue} onChange={(event) => {
                   setInputValue(event.target.value)
                 }} />
+
 
               </div>
               <div className="nav-icons">
@@ -151,7 +155,10 @@ function App() {
               <p>Минималистичная одежда в желто-черной гамме</p>
               <div className="hero-buttons">
                 <a href="" className="btn btn-primary" onClick={() => navigate("/cart")}>Купить</a>
-                <a href="" className="btn btn-outline">Коллекция</a>
+              {/* <button onClick={()=> filteredDecrease()}>по убыванию </button> */}
+
+
+
               </div>
             </section>
             <div className="products-grid">
@@ -217,9 +224,9 @@ function App() {
         } />
 
         <Route path="/cart" element={<Cart items={wareInCart} setItems={setWareInCart} count={count} deleteCount={setCount} />} />
-        <Route path="/login" element={<Login></Login>} />
-        <Route path="/ware" element={<Ware items={showProduct} setItems={setShowProduct} sizes={sizes} setSizes={setSizes} ></Ware>} />
-        <Route path="/fav" element={<Favourite items={fav} setItems={setFav} ></Favourite>} />
+        <Route path="/login" element={<Login count={count}></Login>} />
+        <Route path="/ware" element={<Ware items={showProduct} setItems={setShowProduct} sizes={sizes} setSizes={setSizes} setCount={setCount} onAdd={addToCart} count={count}></Ware>} />
+        <Route path="/fav" element={<Favourite items={fav} setItems={setFav} count={count}></Favourite>} />
 
       </Routes>
 

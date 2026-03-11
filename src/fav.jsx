@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from "react-router-dom";
 import './App.css'
 
-function Favourite({items,setItems}) {
+function Favourite({items,setItems,count}) {
     const navigate = useNavigate();
     const [inFav, setInFavIndex] = useState(0)
     function deleteWare(inFavIndex) {
@@ -28,7 +28,7 @@ function Favourite({items,setItems}) {
                         <button className="icon-btn">❤️</button>
                         <button className="icon-btn" onClick={() => navigate("/cart")}>
                             🛒
-                            <span className="cart-badge"></span>
+                            <span className="cart-badge">{count}</span>
                         </button>
                     </div>
                 </nav>

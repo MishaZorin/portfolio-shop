@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from "react-router-dom";
 import './App.css'
 
-function Login() {
+function Login({count}) {
    const [c,setC] = useState(0)
     const navigate = useNavigate();
 
@@ -19,13 +19,13 @@ function Login() {
                         <button className="icon-btn" onClick={() => navigate("/fav")}>❤️</button>
                         <button className="icon-btn" onClick={() => navigate("/cart")}>
                             🛒
-                            <span className="cart-badge"></span>
+                            <span className="cart-badge">{count}</span>
                         </button>
                     </div>
                 </nav>
                 <div className="create-acc">
                     <form action="">
-                    <p>Созать Аккаунт</p>
+                    <p>Создать Аккаунт</p>
                     <input type="text" placeholder='Имя:'/>
                     <input type="email" placeholder='E-mail:' />
                     <input type="password" placeholder='Создайте пароль:' />

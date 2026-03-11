@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from "react-router-dom";
 import './ware.css'
-function Ware({ items, setItems, sizes, setSizes }) {
+function Ware({ items, setItems, sizes, setSizes, setCount, count, onAdd }) {
     const navigate = useNavigate();
     return (
         <>
@@ -13,7 +13,7 @@ function Ware({ items, setItems, sizes, setSizes }) {
                         <button className="icon-btn">❤️</button>
                         <button className="icon-btn" onClick={() => navigate("/cart")} >
                             🛒
-                            <span className="cart-badge"></span>
+                            <span className="cart-badge">{count}</span>
                         </button>
                     </div>
                 </nav>
@@ -35,7 +35,12 @@ function Ware({ items, setItems, sizes, setSizes }) {
 
                                 ))}
                                 <p className="price-tag">{item.price} ₽</p>
-                                <button className='add' >Добавить!</button>
+                                <button className='add' onClick={() => {
+                                    onAdd(item);
+                                    setCount(count + 1);
+                                }}>
+                                    Добавить
+                                </button>
                             </div>
                         </div>
                     ))}
