@@ -10,7 +10,7 @@ function Ware({ items, setItems, sizes, setSizes, setCount, count, onAdd }) {
                     <a href="#" className="logo" onClick={() => navigate('/')}>YELLOW<span>BLACK</span></a>
                     <div className="nav-icons">
                         <button className="icon-btn" onClick={() => navigate("/login")}>👤</button>
-                        <button className="icon-btn">❤️</button>
+                        <button className="icon-btn" onClick={() => navigate("/fav")}>❤️</button>
                         <button className="icon-btn" onClick={() => navigate("/cart")} >
                             🛒
                             <span className="cart-badge">{count}</span>
